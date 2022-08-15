@@ -1,3 +1,5 @@
-import BoardsListBar from './BoardsListBar';
+import BoardsListBar, { TBoards } from './BoardsListBar/BoardsListBar';
 import TaskListBlock from './TaskListBlock';
-export { BoardsListBar, TaskListBlock };
+import AddButton from './AddButton/AddButton';
+export { BoardsListBar, TaskListBlock, AddButton };
+export type { TBoards };

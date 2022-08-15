@@ -1,0 +1,14 @@
+.add-button {
+	font-size: 27px;
+	font-weight: bolder;
+	width: 100%;
+	background-color: #fff;
+	border-radius: 10px;
+	transition: 0.5s;
+
+	&:hover {
+		cursor: pointer;
+		background-color: rgb(0, 47, 167);
+		color: #fff
+	}
+}
