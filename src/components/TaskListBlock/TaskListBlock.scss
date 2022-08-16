@@ -1,0 +1,21 @@
+.task-list-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 50px;
+  margin: 50px 50px;
+
+  .task-list {
+    height: max-content;
+    min-height: 150px;
+    background-color: rgb(246, 249, 250);
+    border-radius: 10px;
+
+    .title {
+      margin: 10px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+}

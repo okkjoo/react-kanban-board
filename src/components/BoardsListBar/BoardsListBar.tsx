@@ -2,9 +2,13 @@ import React, { Dispatch, FC, SetStateAction, MouseEvent } from 'react';
 import { AddButton } from '..';
 import './BoardsListBar.scss';
 
+type task = {
+	title: string;
+	content: string;
+};
 export type TBoards = {
 	title: string;
-	tasks?: {};
+	tasks?: task[];
 };
 
 interface BoardsListBarProps {
@@ -21,7 +25,7 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 }) => {
 	const handleAddButton = () => {
 		const title = prompt('Enter your title');
-		if (title) setBoards(prev => [...prev, { title: title, tasks: {} }]);
+		if (title) setBoards(prev => [...prev, { title: title, tasks: [] }]);
 	};
 	const handleDeleteButton = (board: any) => {
 		// eslint-disable-next-line no-restricted-globals
