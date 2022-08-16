@@ -3,7 +3,7 @@ import { BoardsListBar, TaskListBlock, TBoards } from './components';
 import './App.css';
 
 function App() {
-	const [boardsData, setBoardsData] = useState<TBoards[]>([
+	const [boards, setBoards] = useState<TBoards[]>([
 		{
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			tasks: [],
@@ -40,16 +40,21 @@ function App() {
 		{ title: '测试测试', tasks: [] },
 		{ title: '测试测试', tasks: [] },
 	]);
-	const [currentBoard, setcurrentBoard] = useState(boardsData[0]);
+	const [currentBoard, setcurrentBoard] = useState(boards[0]);
 	return (
 		<div className='App'>
 			<BoardsListBar
-				boards={boardsData}
-				setBoards={setBoardsData}
+				boards={boards}
+				setBoards={setBoards}
 				currentBoard={currentBoard}
 				setcurrentBoard={setcurrentBoard}
 			/>
-			<TaskListBlock currentBoard={currentBoard} />
+			<TaskListBlock
+				boards={boards}
+				setBoards={setBoards}
+				currentBoard={currentBoard}
+				setcurrentBoard={setcurrentBoard}
+			/>
 		</div>
 	);
 }
