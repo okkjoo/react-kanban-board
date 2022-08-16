@@ -5,6 +5,7 @@ import './BoardsListBar.scss';
 type task = {
 	title: string;
 	content: string;
+	tag?: string;
 };
 export type TBoards = {
 	title: string;
@@ -38,12 +39,10 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 		<div className='boards-lists-bar'>
 			<h1 className='title'>react-kanban-board</h1>
 			<div className='boards-lists'>
-				{boards.map(item => (
-					<div className='board-container' key={item.title}>
+				{boards.map((item, idx) => (
+					<div className='board-container' key={item.title + idx}>
 						<div
-							className={`board ${
-								currentBoard.title === item.title ? 'selected' : ''
-							}`}
+							className={`board ${currentBoard === item ? 'selected' : ''}`}
 							onClick={() => {
 								setcurrentBoard(item);
 							}}
