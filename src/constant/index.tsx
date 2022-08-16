@@ -12,5 +12,5 @@ type task = {
 
 export type TBoards = {
 	title: string;
-	tasks?: task[];
+	tasks: task[];
 };
