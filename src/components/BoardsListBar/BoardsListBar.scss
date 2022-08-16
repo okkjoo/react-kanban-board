@@ -18,24 +18,67 @@
 			margin-top: 10px;
 		}
 
-		.board {
-			max-width: 260px;
-			text-align: center;
+		.board-container {
+			display: flex;
+			width: 260px;
+			transition: 1s;
 			font-size: 20px;
 			line-height: 20px;
-			padding: 10px 5px;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			background-color: #fff;
-			border-radius: 10px;
-			transition: 0.5s;
+
+			.deleteBtn {
+				display: none;
+			}
 
 			&:hover {
-				cursor: pointer;
-				background-color: rgb(0, 47, 167);
-				color: #fff
+				width: 250px;
+
+				.deleteBtn {
+					display: block;
+					margin-left: 5px;
+					color: #000;
+					border-radius: 20px;
+					background-color: #fff;
+					padding: 5px 10px;
+					border: red 3px solid;
+					cursor: pointer;
+					font-style: italic;
+					transition: 0.5s;
+
+					&:hover {
+						color: #fff;
+						background-color: red;
+					}
+				}
 			}
+
+			.board {
+				position: relative;
+				width: 100%;
+				text-align: center;
+
+				padding: 10px 5px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				background-color: #fff;
+				border-radius: 10px;
+				transition: 0.5s;
+
+				&.selected {
+					background-color: rgb(0, 47, 167);
+					color: #fff
+				}
+
+				&:hover {
+					cursor: pointer;
+					background-color: rgb(0, 47, 167);
+					color: #fff;
+				}
+			}
+
+
 		}
+
+
 	}
 }

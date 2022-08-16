@@ -4,14 +4,21 @@ import './App.css';
 
 function App() {
 	const [boards, setBoards] = useState<TBoards[]>([
-		{ title: 'one' },
-		{ title: 'one' },
-		{ title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' },
-		{ title: '测试测试' },
+		{
+			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+			tasks: {},
+		},
+		{ title: '测试测试', tasks: {} },
 	]);
+	const [currentBoard, setcurrentBoard] = useState(boards[0]);
 	return (
 		<div className='App'>
-			<BoardsListBar boards={boards} setBoards={setBoards} />
+			<BoardsListBar
+				boards={boards}
+				setBoards={setBoards}
+				currentBoard={currentBoard}
+				setcurrentBoard={setcurrentBoard}
+			/>
 			<TaskListBlock />
 		</div>
 	);
