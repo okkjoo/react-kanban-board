@@ -8,7 +8,14 @@ function App() {
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			tasks: [],
 		},
-		{ title: '测试测试', tasks: [{ title: '测试', content: 'aa' }] },
+		{
+			title: '测试11',
+			tasks: [
+				{ title: '测试todo', content: 'aa', tag: 'to do' },
+				{ title: '测试ing', content: 'inggggggggggggggggggg', tag: 'ing' },
+				{ title: '测试ed', content: 'edededdedededed', tag: 'ed' },
+			],
+		},
 		{ title: '测试测试', tasks: [] },
 		{ title: '测试测试', tasks: [] },
 		{ title: '测试测试', tasks: [] },
