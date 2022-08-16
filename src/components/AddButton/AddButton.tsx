@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './AddButton.scss';
-
-const AddButton = () => {
-	return <button className='add-button'>+</button>;
+interface AddButtonProps {
+	handleClick: () => void;
+}
+const AddButton: FC<AddButtonProps> = ({ handleClick }) => {
+	return (
+		<button className='add-button' onClick={handleClick}>
+			+
+		</button>
+	);
 };
 
 export default AddButton;

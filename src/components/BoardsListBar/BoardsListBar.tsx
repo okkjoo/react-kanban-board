@@ -10,6 +10,10 @@ interface BoardsListBarProps {
 	setBoards: Dispatch<SetStateAction<TBoards[]>>;
 }
 const BoardsListBar: FC<BoardsListBarProps> = ({ boards, setBoards }) => {
+	const handleAddButton = () => {
+		const title = prompt('Enter your title');
+		if (title) setBoards(prev => [...prev, { title: title }]);
+	};
 	return (
 		<div className='boards-lists-bar'>
 			<h1 className='title'>react-kanban-board</h1>
@@ -19,7 +23,7 @@ const BoardsListBar: FC<BoardsListBarProps> = ({ boards, setBoards }) => {
 						{item.title}
 					</div>
 				))}
-				<AddButton />
+				<AddButton handleClick={handleAddButton} />
 			</div>
 		</div>
 	);
