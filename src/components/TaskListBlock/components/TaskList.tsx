@@ -1,8 +1,12 @@
-import React, { FC } from 'react';
-import { AddButton } from '../../index';
+import React, { FC, Dispatch } from 'react';
+import { AddButton } from '../../';
+import { TBoards, TASKTAG } from '../../../constant';
 
 interface TaskListProp {
-	title: string;
+	title: TASKTAG;
+	boards: TBoards[];
+	setBoards: Dispatch<React.SetStateAction<TBoards[]>>;
+	currentBoard: TBoards;
 }
 const TaskList: FC<TaskListProp> = ({ title }) => {
 	const handleAddTastBtn = () => {};

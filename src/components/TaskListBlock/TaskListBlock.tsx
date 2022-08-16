@@ -1,5 +1,5 @@
 import React, { FC, Dispatch } from 'react';
-import { TBoards } from '../';
+import { TBoards, TASKTAG } from '../../constant';
 import TaskList from './components/TaskList';
 
 import './TaskListBlock.scss';
@@ -19,19 +19,19 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 	return (
 		<div className='task-list-block'>
 			<TaskList
-				title='to do'
+				title={TASKTAG.TODO}
 				boards={boards}
 				setBoards={setBoards}
 				currentBoard={currentBoard}
 			/>
 			<TaskList
-				title='ing'
+				title={TASKTAG.ING}
 				boards={boards}
 				setBoards={setBoards}
 				currentBoard={currentBoard}
 			/>
 			<TaskList
-				title='ed'
+				title={TASKTAG.ED}
 				boards={boards}
 				setBoards={setBoards}
 				currentBoard={currentBoard}

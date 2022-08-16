@@ -1,16 +1,7 @@
-import React, { Dispatch, FC, SetStateAction, MouseEvent } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import { AddButton } from '..';
+import { TBoards } from '../../constant';
 import './BoardsListBar.scss';
-
-type task = {
-	title: string;
-	content: string;
-	tag?: string;
-};
-export type TBoards = {
-	title: string;
-	tasks?: task[];
-};
 
 interface BoardsListBarProps {
 	boards: TBoards[];
