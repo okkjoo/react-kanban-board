@@ -27,7 +27,7 @@ const TaskList: FC<TaskListProp> = ({
 		}
 		setBoards(prev => {
 			const arr = [...prev];
-			const index = prev.findIndex(board => board.title === currentBoard.title);
+			const index = prev.findIndex(board => board.id === currentBoard.id);
 			const boardCopy = arr[index];
 			arr.splice(index, 1, {
 				// title: currentBoard.title,

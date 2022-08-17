@@ -33,7 +33,7 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 		// eslint-disable-next-line no-restricted-globals
 		const r = confirm('really remove?');
 		if (r === true) {
-			setBoards(prev => prev.filter(item => item.title !== board.title));
+			setBoards(prev => prev.filter(item => item.id !== board.id));
 		}
 	};
 	return (
