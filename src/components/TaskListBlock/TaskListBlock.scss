@@ -1,4 +1,4 @@
-.task-list-block {
+.task-list-container-block {
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-column-gap: 50px;
@@ -6,21 +6,16 @@
 
   .add-button {
     width: 100%;
+    margin-bottom: 15px;
   }
 
-  .task-list {
+  .task-list-container {
     height: max-content;
     min-height: 150px;
     max-height: 80vh;
     background-color: rgb(246, 249, 250);
     border-radius: 10px;
     padding: 20px;
-
-    overflow: auto;
-
-    &>*+* {
-      margin-top: 15px;
-    }
 
     .title {
       margin: 10px;
@@ -30,50 +25,58 @@
       font-style: italic;
     }
 
+    .task-list {
+      height: 65vh;
+      overflow: hidden auto;
 
-
-    .task {
-      background-color: #fff;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid;
-      // width: calc(100% - 30px);
-
-      &:last-child {
-        margin-bottom: 20px;
+      &>*+* {
+        margin-top: 15px;
       }
 
-      .task-title {
-        font-size: 20px;
-        font-weight: 600;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+      .task {
+        position: relative;
+        background-color: #fff;
+        padding: 14px;
+        border-radius: 10px;
+        border-left: 5px ridge rgb(0, 47, 167);
 
-        &::before {
-          content: '💡  ';
-          font-size: 18px;
-          line-height: 18px;
-          font-weight: 800;
-          cursor: pointer;
+        .task-title {
+          font-size: 20px;
+          font-weight: 600;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          &::before {
+            content: '💡  ';
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 800;
+            cursor: pointer;
+          }
         }
-      }
 
-      .content {
+        .content {
+          margin-top: 10px;
+          font-size: 19px;
+          line-height: 25px;
+          color: rgb(159, 159, 159);
+          word-wrap: break-word;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 10;
+          overflow: hidden;
+          transition: 0.8s;
 
-        margin-top: 10px;
-        font-size: 19px;
-        line-height: 25px;
-        color: rgb(159, 159, 159);
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 10;
-        overflow: hidden;
-        transition: 0.8s;
-
-        &:hover {
-          -webkit-line-clamp: initial;
+          &:hover {
+            -webkit-line-clamp: initial;
+          }
         }
+
+        &:last-child {
+          margin-bottom: 20px;
+        }
+
       }
     }
   }

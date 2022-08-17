@@ -17,7 +17,7 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 	currentBoard,
 }) => {
 	return (
-		<div className='task-list-block'>
+		<div className='task-list-container-block'>
 			<TaskList
 				title={TASKTAG.TODO}
 				boards={boards}

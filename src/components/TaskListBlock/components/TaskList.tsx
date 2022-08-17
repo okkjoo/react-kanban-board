@@ -42,22 +42,24 @@ const TaskList: FC<TaskListProp> = ({
 	};
 
 	return (
-		<div className='task-list'>
+		<div className='task-list-container'>
 			<h2 className='title'>{title}</h2>
 			<AddButton handleClick={handleAddTastBtn} />
-			{boards
-				.find(board => board.title === currentBoard.title)
-				?.tasks.map(task => {
-					if (task.tag === title) {
-						return (
-							<Task
-								key={task.title}
-								title={task.title}
-								content={task.content}
-							/>
-						);
-					} else return null;
-				})}
+			<div className='task-list'>
+				{boards
+					.find(board => board.title === currentBoard.title)
+					?.tasks.map(task => {
+						if (task.tag === title) {
+							return (
+								<Task
+									key={task.title}
+									title={task.title}
+									content={task.content}
+								/>
+							);
+						} else return null;
+					})}
+			</div>
 		</div>
 	);
 };
