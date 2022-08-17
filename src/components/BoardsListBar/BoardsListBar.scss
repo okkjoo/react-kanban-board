@@ -1,7 +1,7 @@
 .boards-lists-bar {
 	padding: 0 20px;
 	border-right: 1px solid rgb(220, 218, 218);
-	height: 100%;
+	height: 95vh;
 
 	.title {
 		font-family: 'ZCOOL Addict Italic 02';
@@ -12,7 +12,10 @@
 	}
 
 	.boards-lists {
+		height: 90%;
 		padding: 0 10px;
+		overflow: hidden auto;
+		// overflow: overlay;
 
 		&>*+* {
 			margin-top: 10px;
@@ -35,6 +38,7 @@
 				.deleteBtn {
 					display: block;
 					margin-left: 5px;
+					margin-right: 17px;
 					color: #000;
 					border-radius: 20px;
 					background-color: #fff;
@@ -53,7 +57,7 @@
 
 			.board {
 				position: relative;
-				width: 100%;
+				width: 90%;
 				text-align: center;
 
 				padding: 10px 5px;
@@ -75,10 +79,6 @@
 					color: #fff;
 				}
 			}
-
-
 		}
-
-
 	}
 }

@@ -48,8 +48,8 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 						</button>
 					</div>
 				))}
-				<AddButton handleClick={handleAddButton} />
 			</div>
+			<AddButton handleClick={handleAddButton} />
 		</div>
 	);
 };
