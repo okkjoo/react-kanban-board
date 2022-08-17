@@ -17,7 +17,8 @@ const TaskList: FC<TaskListProp> = ({
 }) => {
 	// const tid = useId();
 	console.log(currentBoard);
-	const handleAddTastBtn = () => {
+
+	const handleAddTaskBtn = () => {
 		const taskTitle = prompt('Enter your task title');
 		const content = prompt('Enter your task content');
 		if (!(taskTitle && content)) {
@@ -47,7 +48,7 @@ const TaskList: FC<TaskListProp> = ({
 	return (
 		<div className='task-list-container'>
 			<h2 className='title'>{title}</h2>
-			<AddButton handleClick={handleAddTastBtn} />
+			<AddButton handleClick={handleAddTaskBtn} />
 			<div className='task-list'>
 				{boards
 					.find(board => board.title === currentBoard.title)
