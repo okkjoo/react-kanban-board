@@ -21,6 +21,7 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 			setBoards(prev => [
 				...prev,
 				{
+					id: Math.random().toString(),
 					title: title,
 					[TASKTAG.TODO]: [],
 					[TASKTAG.ING]: [],
@@ -39,19 +40,21 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 		<div className='boards-lists-bar'>
 			<h1 className='title'>react-kanban-board</h1>
 			<div className='boards-lists'>
-				{boards.map((item, idx) => (
-					<div className='board-container' key={item.title + idx}>
+				{boards.map((board, idx) => (
+					<div className='board-container' key={board.title + idx}>
 						<div
-							className={`board ${currentBoard === item ? 'selected' : ''}`}
+							className={`board ${
+								currentBoard.id === board.id ? 'selected' : ''
+							}`}
 							onClick={() => {
-								setcurrentBoard(item);
+								setcurrentBoard(board);
 							}}
 						>
-							{item.title}
+							{board.title}
 						</div>
 						<button
 							className='deleteBtn'
-							onClick={e => handleDeleteButton(item)}
+							onClick={e => handleDeleteButton(board)}
 						>
 							remove
 						</button>

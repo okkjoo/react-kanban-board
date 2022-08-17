@@ -6,6 +6,7 @@ import './App.css';
 function App() {
 	const [boards, setBoards] = useState<TBoards[]>([
 		{
+			id: useId(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			[TASKTAG.TODO]: [{ title: '测试todo', content: 'aa', id: useId() }],
 			[TASKTAG.ING]: [
@@ -24,6 +25,27 @@ function App() {
 			],
 		},
 		{
+			id: useId(),
+			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+		},
+		{
+			id: useId(),
+			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+		},
+		{
+			id: useId(),
+			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+		},
+		{
+			id: useId(),
+			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+		},
+		{
+			id: useId(),
+			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+		},
+		{
+			id: useId(),
 			title: 'aaa',
 			[TASKTAG.TODO]: [
 				{ title: '测试todo', content: 'aa', id: useId() },
@@ -59,7 +81,6 @@ function App() {
 				boards={boards}
 				setBoards={setBoards}
 				currentBoard={currentBoard}
-				setcurrentBoard={setcurrentBoard}
 			/>
 		</div>
 	);

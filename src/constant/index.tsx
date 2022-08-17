@@ -11,8 +11,9 @@ type task = {
 };
 
 export type TBoards = {
+	id: string;
 	title: string;
-	[TASKTAG.TODO]: task[];
-	[TASKTAG.ING]: task[];
-	[TASKTAG.ED]: task[];
+	[TASKTAG.TODO]?: task[];
+	[TASKTAG.ING]?: task[];
+	[TASKTAG.ED]?: task[];
 };

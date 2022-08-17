@@ -9,7 +9,6 @@ interface TaskListBlockProps {
 	boards: TBoards[];
 	setBoards: Dispatch<React.SetStateAction<TBoards[]>>;
 	currentBoard: TBoards;
-	setcurrentBoard: Dispatch<React.SetStateAction<TBoards>>;
 }
 
 const TaskListBlock: FC<TaskListBlockProps> = ({
