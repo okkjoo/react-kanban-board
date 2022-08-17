@@ -1,6 +1,7 @@
 import React, { FC, Dispatch } from 'react';
 import { AddButton } from '../../';
 import { TBoards, TASKTAG } from '../../../constant';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 import Task from './Task';
 
 interface TaskListProp {
