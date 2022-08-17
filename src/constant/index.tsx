@@ -8,6 +8,7 @@ type task = {
 	title: string;
 	content: string;
 	tag?: TASKTAG;
+	id: string;
 };
 
 export type TBoards = {

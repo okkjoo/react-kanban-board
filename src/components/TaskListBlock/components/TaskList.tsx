@@ -15,6 +15,7 @@ const TaskList: FC<TaskListProp> = ({
 	currentBoard,
 	setBoards,
 }) => {
+	// const tid = useId();
 	console.log(currentBoard);
 	const handleAddTastBtn = () => {
 		const taskTitle = prompt('Enter your task title');
@@ -33,6 +34,8 @@ const TaskList: FC<TaskListProp> = ({
 					{
 						title: taskTitle as string,
 						content: content as string,
+						id: Math.random().toString(),
+						// id: tid,
 						tag: title,
 					},
 				],
