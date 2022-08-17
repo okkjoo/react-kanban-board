@@ -50,21 +50,43 @@ const TaskList: FC<TaskListProp> = ({
 		<div className='task-list-container'>
 			<h2 className='title'>{title}</h2>
 			<AddButton handleClick={handleAddTaskBtn} />
-			<div className='task-list'>
-				{boards
-					.find(board => board.title === currentBoard.title)
-					?.tasks.map(task => {
-						if (task.tag === title) {
-							return (
-								<Task
-									key={task.title}
-									title={task.title}
-									content={task.content}
-								/>
-							);
-						} else return null;
-					})}
-			</div>
+			<Droppable droppableId={title}>
+				{(provided, snapshot) => {
+					return (
+						<div
+							className='task-list'
+							ref={provided.innerRef}
+							{...provided.droppableProps}
+						>
+							{boards
+								.find(board => board.title === currentBoard.title)
+								?.tasks.map((task, index) => {
+									if (task.tag === title) {
+										return (
+											<Draggable
+												key={task.id}
+												draggableId={task.id}
+												index={index}
+											>
+												{(provided, snapshot) => {
+													return (
+														<Task
+															title={task.title}
+															content={task.content}
+															provided={provided}
+															snapshot={snapshot}
+														/>
+													);
+												}}
+											</Draggable>
+										);
+									} else return null;
+								})}
+							{provided.placeholder}
+						</div>
+					);
+				}}
+			</Droppable>
 		</div>
 	);
 };
