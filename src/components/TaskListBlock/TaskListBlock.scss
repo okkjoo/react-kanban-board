@@ -39,6 +39,16 @@
         padding: 14px;
         border-radius: 10px;
         border-left: 5px ridge rgb(0, 47, 167);
+        cursor: grab;
+        transition: 0.5s;
+
+        &:hover {
+          padding: 25px 15px;
+
+          .content {
+            -webkit-line-clamp: initial;
+          }
+        }
 
         .task-title {
           font-size: 20px;
@@ -67,10 +77,6 @@
           -webkit-line-clamp: 10;
           overflow: hidden;
           transition: 0.8s;
-
-          &:hover {
-            -webkit-line-clamp: initial;
-          }
         }
 
         &:last-child {
