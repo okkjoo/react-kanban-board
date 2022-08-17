@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction } from 'react';
 import { AddButton } from '..';
-import { TBoards } from '../../constant';
+import { TBoards, TASKTAG } from '../../constant';
 import './BoardsListBar.scss';
 
 interface BoardsListBarProps {
@@ -17,7 +17,16 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 }) => {
 	const handleAddButton = () => {
 		const title = prompt('Enter your title');
-		if (title) setBoards(prev => [...prev, { title: title, tasks: [] }]);
+		if (title)
+			setBoards(prev => [
+				...prev,
+				{
+					title: title,
+					[TASKTAG.TODO]: [],
+					[TASKTAG.ING]: [],
+					[TASKTAG.ED]: [],
+				},
+			]);
 	};
 	const handleDeleteButton = (board: any) => {
 		// eslint-disable-next-line no-restricted-globals

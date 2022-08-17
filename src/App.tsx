@@ -7,49 +7,44 @@ function App() {
 	const [boards, setBoards] = useState<TBoards[]>([
 		{
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			tasks: [],
-		},
-		{
-			title: '测试11',
-			tasks: [
-				{ title: '测试todo', content: 'aa', id: useId(), tag: TASKTAG.TODO },
+			[TASKTAG.TODO]: [{ title: '测试todo', content: 'aa', id: useId() }],
+			[TASKTAG.ING]: [
 				{
 					title: '测试ing',
 					content: 'inggggggggggggggggggg',
 					id: useId(),
-					tag: TASKTAG.ING,
 				},
+			],
+			[TASKTAG.ED]: [
 				{
 					title: '测试ed',
 					content: 'edededdedededed',
 					id: useId(),
-					tag: TASKTAG.ED,
 				},
 			],
 		},
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
-		{ title: '测试测试', tasks: [] },
+		{
+			title: 'aaa',
+			[TASKTAG.TODO]: [
+				{ title: '测试todo', content: 'aa', id: useId() },
+				{ title: '测试todo', content: 'aa', id: useId() },
+				{ title: '测试todo', content: 'aa', id: useId() },
+			],
+			[TASKTAG.ING]: [
+				{
+					title: '测试ing',
+					content: 'inggggggggggggggggggg',
+					id: useId(),
+				},
+			],
+			[TASKTAG.ED]: [
+				{
+					title: '测试ed',
+					content: 'edededdedededed',
+					id: useId(),
+				},
+			],
+		},
 	]);
 	const [currentBoard, setcurrentBoard] = useState(boards[0]);
 	return (

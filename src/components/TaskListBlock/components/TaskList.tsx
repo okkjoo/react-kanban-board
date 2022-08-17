@@ -30,15 +30,16 @@ const TaskList: FC<TaskListProp> = ({
 			const index = prev.findIndex(board => board.title === currentBoard.title);
 			const boardCopy = arr[index];
 			arr.splice(index, 1, {
-				title: currentBoard.title,
-				tasks: [
-					...boardCopy.tasks,
+				// title: currentBoard.title,
+				...boardCopy,
+				[title]: [
+					...boardCopy[title],
 					{
 						title: taskTitle as string,
 						content: content as string,
 						id: Math.random().toString(),
 						// id: tid,
-						tag: title,
+						// tag: title,
 					},
 				],
 			});
@@ -60,27 +61,25 @@ const TaskList: FC<TaskListProp> = ({
 						>
 							{boards
 								.find(board => board.title === currentBoard.title)
-								?.tasks.map((task, index) => {
-									if (task.tag === title) {
-										return (
-											<Draggable
-												key={task.id}
-												draggableId={task.id}
-												index={index}
-											>
-												{(provided, snapshot) => {
-													return (
-														<Task
-															title={task.title}
-															content={task.content}
-															provided={provided}
-															snapshot={snapshot}
-														/>
-													);
-												}}
-											</Draggable>
-										);
-									} else return null;
+								?.[title].map((task, index) => {
+									return (
+										<Draggable
+											key={task.id}
+											draggableId={task.id}
+											index={index}
+										>
+											{(provided, snapshot) => {
+												return (
+													<Task
+														title={task.title}
+														content={task.content}
+														provided={provided}
+														snapshot={snapshot}
+													/>
+												);
+											}}
+										</Draggable>
+									);
 								})}
 							{provided.placeholder}
 						</div>
