@@ -1,5 +1,5 @@
 import React, { FC, Dispatch } from 'react';
-import { TBoards, TASKTAG, task } from '../../constant';
+import { TBoards, TASKTAG } from '../../constant';
 import TaskList from './components/TaskList';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
@@ -17,7 +17,6 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 	currentBoardId,
 }) => {
 	const handleDragEnd = (res: DropResult) => {
-		// console.log(res);
 		if (!res.destination) return;
 		const { source, destination } = res;
 		const curBoard = boards.find(

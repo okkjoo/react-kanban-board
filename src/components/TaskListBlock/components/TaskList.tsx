@@ -17,9 +17,6 @@ const TaskList: FC<TaskListProp> = ({
 	currentBoardId,
 	setBoards,
 }) => {
-	// const tid = nanoid()();
-	// console.log(currentBoard);
-
 	const handleAddTaskBtn = () => {
 		const taskTitle = prompt('Enter your task title');
 		const content = prompt('Enter your task content');
@@ -47,11 +44,6 @@ const TaskList: FC<TaskListProp> = ({
 			});
 			return arr;
 		});
-		console.log(
-			'cur',
-			boards.find(item => item.id === currentBoardId)
-		);
-		console.log('all', boards);
 	};
 
 	const handleDeleteTaskButton = (id: string) => {
