@@ -26,7 +26,8 @@
     }
 
     .task-list {
-      height: 65vh;
+      min-height: 100px;
+      max-height: 65vh;
       overflow: hidden auto;
 
       &>*+* {
@@ -47,6 +48,12 @@
 
           .content {
             -webkit-line-clamp: initial;
+          }
+        }
+
+        &:active {
+          .content {
+            -webkit-line-clamp: 10;
           }
         }
 
