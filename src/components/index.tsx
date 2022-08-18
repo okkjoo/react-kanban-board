@@ -1,5 +1,5 @@
-import BoardsListBar from './BoardsListBar/BoardsListBar';
-import TaskListBlock from './TaskListBlock/TaskListBlock';
-import AddButton from './AddButton/AddButton';
-import STartPage from './StartPage/STartPage';
-export { BoardsListBar, TaskListBlock, AddButton, STartPage };
+import BoardsListBar from './BoardsListBar';
+import TaskListBlock from './TaskListBlock';
+import AddButton from './AddButton';
+import StartPage from './StartPage';
+export { BoardsListBar, TaskListBlock, AddButton, StartPage };
