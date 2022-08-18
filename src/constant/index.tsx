@@ -17,3 +17,5 @@ export type TBoards = {
 	[TASKTAG.ING]: task[];
 	[TASKTAG.ED]: task[];
 };
+
+export const DATAKEY = 'kanban-data';

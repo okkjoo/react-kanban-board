@@ -1,33 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BoardsListBar, TaskListBlock, STartPage } from './components';
-import { TBoards, TASKTAG } from './constant';
-import { nanoid } from 'nanoid';
+import { TBoards, DATAKEY } from './constant';
 
 import './App.css';
 
 function App() {
-	const [boards, setBoards] = useState<TBoards[]>([
-		{
-			id: nanoid(),
-			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			[TASKTAG.TODO]: [{ title: '测试todo', content: 'aa', id: nanoid() }],
-			[TASKTAG.ING]: [
-				{
-					title: '测试ing',
-					content: 'inggggggggggggggggggg',
-					id: nanoid(),
-				},
-			],
-			[TASKTAG.ED]: [
-				{
-					title: '测试ed',
-					content: 'edededdedededed',
-					id: nanoid(),
-				},
-			],
-		},
-	]);
+	const initialBoards: TBoards[] = localStorage.getItem(DATAKEY)
+		? JSON.parse(localStorage.getItem(DATAKEY) as string)
+		: [];
+
+	// console.log(initialBoards);
+
+	const [boards, setBoards] = useState<TBoards[]>(initialBoards);
 	const [currentBoardId, setcurrentBoardId] = useState(boards[0]?.id || 'null');
+
+	useEffect(() => {
+		localStorage.setItem(DATAKEY, JSON.stringify(boards));
+	}, [boards]);
+
 	return (
 		<div className='App'>
 			<BoardsListBar
