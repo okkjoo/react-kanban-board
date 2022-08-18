@@ -7,14 +7,14 @@ import './BoardsListBar.scss';
 interface BoardsListBarProps {
 	boards: TBoards[];
 	setBoards: Dispatch<SetStateAction<TBoards[]>>;
-	currentBoard: TBoards;
-	setcurrentBoard: Dispatch<SetStateAction<TBoards>>;
+	currentBoardId: string;
+	setcurrentBoardId: Dispatch<React.SetStateAction<string>>;
 }
 const BoardsListBar: FC<BoardsListBarProps> = ({
 	boards,
 	setBoards,
-	currentBoard,
-	setcurrentBoard,
+	currentBoardId,
+	setcurrentBoardId,
 }) => {
 	const handleAddButton = () => {
 		const title = prompt('Enter your title');
@@ -45,10 +45,10 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 					<div className='board-container' key={board.title + idx}>
 						<div
 							className={`board ${
-								currentBoard.id === board.id ? 'selected' : ''
+								currentBoardId === board.id ? 'selected' : ''
 							}`}
 							onClick={() => {
-								setcurrentBoard(board);
+								setcurrentBoardId(board.id);
 							}}
 						>
 							{board.title}

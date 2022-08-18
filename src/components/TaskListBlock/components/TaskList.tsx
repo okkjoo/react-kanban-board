@@ -9,16 +9,16 @@ interface TaskListProp {
 	title: TASKTAG;
 	boards: TBoards[];
 	setBoards: Dispatch<React.SetStateAction<TBoards[]>>;
-	currentBoard: TBoards;
+	currentBoardId: string;
 }
 const TaskList: FC<TaskListProp> = ({
 	title,
 	boards,
-	currentBoard,
+	currentBoardId,
 	setBoards,
 }) => {
 	// const tid = nanoid()();
-	console.log(currentBoard);
+	// console.log(currentBoard);
 
 	const handleAddTaskBtn = () => {
 		const taskTitle = prompt('Enter your task title');
@@ -29,7 +29,7 @@ const TaskList: FC<TaskListProp> = ({
 		}
 		setBoards(prev => {
 			const arr = [...prev];
-			const index = prev.findIndex(board => board.id === currentBoard.id);
+			const index = prev.findIndex(board => board.id === currentBoardId);
 			const boardCopy = arr[index];
 			arr.splice(index, 1, {
 				// title: currentBoard.title,
@@ -47,6 +47,11 @@ const TaskList: FC<TaskListProp> = ({
 			});
 			return arr;
 		});
+		console.log(
+			'cur',
+			boards.find(item => item.id === currentBoardId)
+		);
+		console.log('all', boards);
 	};
 
 	return (
@@ -62,7 +67,7 @@ const TaskList: FC<TaskListProp> = ({
 							{...provided.droppableProps}
 						>
 							{boards
-								.find(board => board.id === currentBoard.id)
+								.find(board => board.id === currentBoardId)
 								?.[title].map((task, index) => {
 									return (
 										<Draggable

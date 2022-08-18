@@ -85,19 +85,19 @@ function App() {
 			],
 		},
 	]);
-	const [currentBoard, setcurrentBoard] = useState(boards[0]);
+	const [currentBoardId, setcurrentBoardId] = useState(boards[0].id);
 	return (
 		<div className='App'>
 			<BoardsListBar
 				boards={boards}
 				setBoards={setBoards}
-				currentBoard={currentBoard}
-				setcurrentBoard={setcurrentBoard}
+				currentBoardId={currentBoardId}
+				setcurrentBoardId={setcurrentBoardId}
 			/>
 			<TaskListBlock
 				boards={boards}
 				setBoards={setBoards}
-				currentBoard={currentBoard}
+				currentBoardId={currentBoardId}
 			/>
 		</div>
 	);
