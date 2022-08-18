@@ -26,66 +26,8 @@ function App() {
 				},
 			],
 		},
-		{
-			id: nanoid(),
-			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			[TASKTAG.TODO]: [],
-			[TASKTAG.ING]: [],
-			[TASKTAG.ED]: [],
-		},
-		{
-			id: nanoid(),
-			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			[TASKTAG.TODO]: [],
-			[TASKTAG.ING]: [],
-			[TASKTAG.ED]: [],
-		},
-		{
-			id: nanoid(),
-			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			[TASKTAG.TODO]: [],
-			[TASKTAG.ING]: [],
-			[TASKTAG.ED]: [],
-		},
-		{
-			id: nanoid(),
-			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			[TASKTAG.TODO]: [],
-			[TASKTAG.ING]: [],
-			[TASKTAG.ED]: [],
-		},
-		{
-			id: nanoid(),
-			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			[TASKTAG.TODO]: [],
-			[TASKTAG.ING]: [],
-			[TASKTAG.ED]: [],
-		},
-		{
-			id: nanoid(),
-			title: 'aaa',
-			[TASKTAG.TODO]: [
-				{ title: '测试todo', content: 'aa', id: nanoid() },
-				{ title: '测试todo', content: 'aa', id: nanoid() },
-				{ title: '测试todo', content: 'aa', id: nanoid() },
-			],
-			[TASKTAG.ING]: [
-				{
-					title: '测试ing',
-					content: 'inggggggggggggggggggg',
-					id: nanoid(),
-				},
-			],
-			[TASKTAG.ED]: [
-				{
-					title: '测试ed',
-					content: 'edededdedededed',
-					id: nanoid(),
-				},
-			],
-		},
 	]);
-	const [currentBoardId, setcurrentBoardId] = useState(boards[0].id);
+	const [currentBoardId, setcurrentBoardId] = useState(boards[0]?.id || 'null');
 	return (
 		<div className='App'>
 			<BoardsListBar
@@ -94,11 +36,13 @@ function App() {
 				currentBoardId={currentBoardId}
 				setcurrentBoardId={setcurrentBoardId}
 			/>
-			<TaskListBlock
-				boards={boards}
-				setBoards={setBoards}
-				currentBoardId={currentBoardId}
-			/>
+			{boards.length && (
+				<TaskListBlock
+					boards={boards}
+					setBoards={setBoards}
+					currentBoardId={currentBoardId}
+				/>
+			)}
 		</div>
 	);
 }

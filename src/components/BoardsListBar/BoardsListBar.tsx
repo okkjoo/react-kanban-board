@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import React, { Dispatch, FC, SetStateAction, MouseEvent } from 'react';
 import { nanoid } from 'nanoid';
 import { AddButton } from '..';
 import { TBoards, TASKTAG } from '../../constant';
@@ -18,17 +18,20 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 }) => {
 	const handleAddButton = () => {
 		const title = prompt('Enter your title');
-		if (title)
+		if (title) {
+			const newBoardId = nanoid();
 			setBoards(prev => [
 				...prev,
 				{
-					id: nanoid(),
+					id: newBoardId,
 					title: title,
 					[TASKTAG.TODO]: [],
 					[TASKTAG.ING]: [],
 					[TASKTAG.ED]: [],
 				},
 			]);
+			setcurrentBoardId(newBoardId);
+		}
 	};
 	const handleDeleteButton = (board: any) => {
 		// eslint-disable-next-line no-restricted-globals
@@ -36,12 +39,13 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 		if (r === true) {
 			setBoards(prev => prev.filter(item => item.id !== board.id));
 		}
+		board.id === currentBoardId && setcurrentBoardId(boards[0]?.id || 'null');
 	};
 	return (
 		<div className='boards-lists-bar'>
 			<h1 className='title'>react-kanban-board</h1>
 			<div className='boards-lists'>
-				{boards.map((board, idx) => (
+				{boards?.map((board, idx) => (
 					<div className='board-container' key={board.title + idx}>
 						<div
 							className={`board ${
@@ -55,7 +59,7 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 						</div>
 						<button
 							className='deleteBtn'
-							onClick={e => handleDeleteButton(board)}
+							onClick={() => handleDeleteButton(board)}
 						>
 							remove
 						</button>
