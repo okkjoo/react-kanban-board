@@ -4,7 +4,7 @@ export enum TASKTAG {
 	ED = 'ed',
 }
 
-type task = {
+export type task = {
 	title: string;
 	content: string;
 	id: string;

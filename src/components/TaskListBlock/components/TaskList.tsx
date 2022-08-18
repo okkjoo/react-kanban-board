@@ -24,6 +24,7 @@ const TaskList: FC<TaskListProp> = ({
 		const content = prompt('Enter your task content');
 		if (!(taskTitle && content)) {
 			alert('The content cannot be empty');
+			return;
 		}
 		setBoards(prev => {
 			const arr = [...prev];

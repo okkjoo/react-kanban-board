@@ -1,5 +1,5 @@
 import React, { FC, Dispatch } from 'react';
-import { TBoards, TASKTAG } from '../../constant';
+import { TBoards, TASKTAG, task } from '../../constant';
 import TaskList from './components/TaskList';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
@@ -20,6 +20,28 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 		console.log(res);
 		if (!res.destination) return;
 		const { source, destination } = res;
+		const taskCopy =
+			currentBoard[source.droppableId as TASKTAG]?.[source.index];
+		//drapped from source
+		setBoards(prev =>
+			prev.map(board => {
+				if (board.id === currentBoard.id) {
+					const taskList = board[source.droppableId as TASKTAG] as task[];
+					taskList.splice(source.index, 1);
+					return { ...board, [source.droppableId]: taskList };
+				} else return board;
+			})
+		);
+		// drop to destination
+		setBoards(prev =>
+			prev.map(board => {
+				if (board.id === currentBoard.id) {
+					const taskList = board[destination.droppableId as TASKTAG] as task[];
+					taskList.splice(destination.index, 0, taskCopy as task);
+					return { ...board, [destination.droppableId]: taskList };
+				} else return board;
+			})
+		);
 	};
 	return (
 		<DragDropContext onDragEnd={res => handleDragEnd(res)}>
