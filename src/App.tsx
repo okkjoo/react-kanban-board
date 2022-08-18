@@ -10,13 +10,20 @@ function App() {
 		: [];
 
 	// console.log(initialBoards);
+	const initialCurBoardId = sessionStorage.getItem(DATAKEY)
+		? sessionStorage.getItem(DATAKEY)
+		: undefined;
+	console.log(initialCurBoardId);
 
 	const [boards, setBoards] = useState<TBoards[]>(initialBoards);
-	const [currentBoardId, setcurrentBoardId] = useState(boards[0]?.id || 'null');
+	const [currentBoardId, setcurrentBoardId] = useState(
+		initialCurBoardId || boards[0]?.id || 'null'
+	);
 
 	useEffect(() => {
 		localStorage.setItem(DATAKEY, JSON.stringify(boards));
-	}, [boards]);
+		sessionStorage.setItem(DATAKEY, currentBoardId);
+	}, [boards, currentBoardId]);
 
 	return (
 		<div className='App'>
