@@ -1,84 +1,86 @@
-import React, { useState, useId } from 'react';
+import React, { useState } from 'react';
 import { BoardsListBar, TaskListBlock } from './components';
 import { TBoards, TASKTAG } from './constant';
+import { nanoid } from 'nanoid';
+
 import './App.css';
 
 function App() {
 	const [boards, setBoards] = useState<TBoards[]>([
 		{
-			id: useId(),
+			id: nanoid(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-			[TASKTAG.TODO]: [{ title: '测试todo', content: 'aa', id: useId() }],
+			[TASKTAG.TODO]: [{ title: '测试todo', content: 'aa', id: nanoid() }],
 			[TASKTAG.ING]: [
 				{
 					title: '测试ing',
 					content: 'inggggggggggggggggggg',
-					id: useId(),
+					id: nanoid(),
 				},
 			],
 			[TASKTAG.ED]: [
 				{
 					title: '测试ed',
 					content: 'edededdedededed',
-					id: useId(),
+					id: nanoid(),
 				},
 			],
 		},
 		{
-			id: useId(),
+			id: nanoid(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			[TASKTAG.TODO]: [],
 			[TASKTAG.ING]: [],
 			[TASKTAG.ED]: [],
 		},
 		{
-			id: useId(),
+			id: nanoid(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			[TASKTAG.TODO]: [],
 			[TASKTAG.ING]: [],
 			[TASKTAG.ED]: [],
 		},
 		{
-			id: useId(),
+			id: nanoid(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			[TASKTAG.TODO]: [],
 			[TASKTAG.ING]: [],
 			[TASKTAG.ED]: [],
 		},
 		{
-			id: useId(),
+			id: nanoid(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			[TASKTAG.TODO]: [],
 			[TASKTAG.ING]: [],
 			[TASKTAG.ED]: [],
 		},
 		{
-			id: useId(),
+			id: nanoid(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
 			[TASKTAG.TODO]: [],
 			[TASKTAG.ING]: [],
 			[TASKTAG.ED]: [],
 		},
 		{
-			id: useId(),
+			id: nanoid(),
 			title: 'aaa',
 			[TASKTAG.TODO]: [
-				{ title: '测试todo', content: 'aa', id: useId() },
-				{ title: '测试todo', content: 'aa', id: useId() },
-				{ title: '测试todo', content: 'aa', id: useId() },
+				{ title: '测试todo', content: 'aa', id: nanoid() },
+				{ title: '测试todo', content: 'aa', id: nanoid() },
+				{ title: '测试todo', content: 'aa', id: nanoid() },
 			],
 			[TASKTAG.ING]: [
 				{
 					title: '测试ing',
 					content: 'inggggggggggggggggggg',
-					id: useId(),
+					id: nanoid(),
 				},
 			],
 			[TASKTAG.ED]: [
 				{
 					title: '测试ed',
 					content: 'edededdedededed',
-					id: useId(),
+					id: nanoid(),
 				},
 			],
 		},

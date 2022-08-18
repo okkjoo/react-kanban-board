@@ -1,4 +1,5 @@
 import React, { Dispatch, FC, SetStateAction } from 'react';
+import { nanoid } from 'nanoid';
 import { AddButton } from '..';
 import { TBoards, TASKTAG } from '../../constant';
 import './BoardsListBar.scss';
@@ -21,7 +22,7 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 			setBoards(prev => [
 				...prev,
 				{
-					id: Math.random().toString(),
+					id: nanoid(),
 					title: title,
 					[TASKTAG.TODO]: [],
 					[TASKTAG.ING]: [],

@@ -1,4 +1,5 @@
 import React, { FC, Dispatch } from 'react';
+import { nanoid } from 'nanoid';
 import { AddButton } from '../../';
 import { TBoards, TASKTAG } from '../../../constant';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
@@ -16,7 +17,7 @@ const TaskList: FC<TaskListProp> = ({
 	currentBoard,
 	setBoards,
 }) => {
-	// const tid = useId();
+	// const tid = nanoid()();
 	console.log(currentBoard);
 
 	const handleAddTaskBtn = () => {
@@ -38,7 +39,7 @@ const TaskList: FC<TaskListProp> = ({
 					{
 						title: taskTitle,
 						content: content,
-						id: Math.random().toString(),
+						id: nanoid(),
 						// id: tid,
 						// tag: title,
 					},
