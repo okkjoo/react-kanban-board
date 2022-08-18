@@ -34,7 +34,7 @@ const TaskList: FC<TaskListProp> = ({
 				// title: currentBoard.title,
 				...boardCopy,
 				[title]: [
-					...(boardCopy[title] || []),
+					...boardCopy[title],
 					{
 						title: taskTitle,
 						content: content,
@@ -60,25 +60,28 @@ const TaskList: FC<TaskListProp> = ({
 							ref={provided.innerRef}
 							{...provided.droppableProps}
 						>
-							{(
-								boards.find(board => board.id === currentBoard.id)?.[title] ||
-								[]
-							).map((task, index) => {
-								return (
-									<Draggable key={task.id} draggableId={task.id} index={index}>
-										{(provided, snapshot) => {
-											return (
-												<Task
-													title={task.title}
-													content={task.content}
-													provided={provided}
-													snapshot={snapshot}
-												/>
-											);
-										}}
-									</Draggable>
-								);
-							})}
+							{boards
+								.find(board => board.id === currentBoard.id)
+								?.[title].map((task, index) => {
+									return (
+										<Draggable
+											key={task.id}
+											draggableId={task.id}
+											index={index}
+										>
+											{(provided, snapshot) => {
+												return (
+													<Task
+														title={task.title}
+														content={task.content}
+														provided={provided}
+														snapshot={snapshot}
+													/>
+												);
+											}}
+										</Draggable>
+									);
+								})}
 							{provided.placeholder}
 						</div>
 					);

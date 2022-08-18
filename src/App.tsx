@@ -27,22 +27,37 @@ function App() {
 		{
 			id: useId(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+			[TASKTAG.TODO]: [],
+			[TASKTAG.ING]: [],
+			[TASKTAG.ED]: [],
 		},
 		{
 			id: useId(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+			[TASKTAG.TODO]: [],
+			[TASKTAG.ING]: [],
+			[TASKTAG.ED]: [],
 		},
 		{
 			id: useId(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+			[TASKTAG.TODO]: [],
+			[TASKTAG.ING]: [],
+			[TASKTAG.ED]: [],
 		},
 		{
 			id: useId(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+			[TASKTAG.TODO]: [],
+			[TASKTAG.ING]: [],
+			[TASKTAG.ED]: [],
 		},
 		{
 			id: useId(),
 			title: 'oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+			[TASKTAG.TODO]: [],
+			[TASKTAG.ING]: [],
+			[TASKTAG.ED]: [],
 		},
 		{
 			id: useId(),
