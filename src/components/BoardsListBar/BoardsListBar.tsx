@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, MouseEvent } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import { nanoid } from 'nanoid';
 import { AddButton } from '..';
 import { TBoards, TASKTAG } from '../../constant';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BoardsListBar, TaskListBlock } from './components';
+import { BoardsListBar, TaskListBlock, STartPage } from './components';
 import { TBoards, TASKTAG } from './constant';
 import { nanoid } from 'nanoid';
 
@@ -36,13 +36,13 @@ function App() {
 				currentBoardId={currentBoardId}
 				setcurrentBoardId={setcurrentBoardId}
 			/>
-			{boards.length && (
+			{(boards.length && (
 				<TaskListBlock
 					boards={boards}
 					setBoards={setBoards}
 					currentBoardId={currentBoardId}
 				/>
-			)}
+			)) || <STartPage />}
 		</div>
 	);
 }
