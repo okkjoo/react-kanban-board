@@ -19,6 +19,7 @@ const Task: FC<TaskProp> = ({ title, content, provided, snapshot }) => {
 			<h3 className='task-title' title={title}>
 				{title}
 			</h3>
+			<div className='delete-task-btn'>❌</div>
 			<p className='content'>{content}</p>
 		</div>
 	);

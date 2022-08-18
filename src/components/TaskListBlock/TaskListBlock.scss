@@ -29,6 +29,7 @@
       min-height: 100px;
       max-height: 65vh;
       overflow: hidden auto;
+      overflow-y: overlay;
 
       &>*+* {
         margin-top: 15px;
@@ -58,8 +59,10 @@
         }
 
         .task-title {
+          // display: inline-block;
           font-size: 20px;
           font-weight: 600;
+          width: 80%;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -70,6 +73,23 @@
             line-height: 18px;
             font-weight: 800;
             cursor: pointer;
+          }
+        }
+
+        .delete-task-btn {
+          display: inline-block;
+          position: absolute;
+          // float: right;
+          right: 14px;
+          top: 14px;
+          font-size: 20px;
+          line-height: 20px;
+          opacity: 0.3;
+          transition: 0.5s;
+
+          &:hover {
+            opacity: 1;
+            transform: scale(1.2);
           }
         }
 
