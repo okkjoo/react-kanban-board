@@ -54,6 +54,22 @@ const TaskList: FC<TaskListProp> = ({
 		console.log('all', boards);
 	};
 
+	const handleDeleteTaskButton = (id: string) => {
+		// eslint-disable-next-line no-restricted-globals
+		const r = confirm('really delete this task?');
+		if (!r) return;
+		setBoards(prev =>
+			prev.map(board => {
+				if (board.id === currentBoardId) {
+					const taskList = board[title];
+					const index = taskList.findIndex(task => task.id === id);
+					taskList.splice(index, 1);
+					return { ...board, [title]: [...taskList] };
+				} else return board;
+			})
+		);
+	};
+
 	return (
 		<div className='task-list-container'>
 			<h2 className='title'>{title}</h2>
@@ -80,8 +96,10 @@ const TaskList: FC<TaskListProp> = ({
 													<Task
 														title={task.title}
 														content={task.content}
+														id={task.id}
 														provided={provided}
 														snapshot={snapshot}
+														handleDeleteTaskButton={handleDeleteTaskButton}
 													/>
 												);
 											}}
