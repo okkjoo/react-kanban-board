@@ -51,8 +51,8 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 		const taskTitle = prompt('Enter your task title');
 		const content = prompt('Enter your task content');
 
-		if (!(taskTitle && content)) {
-			alert('The content cannot be empty');
+		if (!(taskTitle || content)) {
+			alert("They can't all be empty");
 			return;
 		}
 
@@ -68,15 +68,12 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 						title: taskTitle,
 						content: content,
 						id: nanoid(),
-						// id: tid,
-						// tag: title,
 					},
 				],
 			});
 			return arr;
 		});
 	};
-
 	const onKeyDown = (e: KeyboardEvent) => {
 		switch (e.key.toLowerCase()) {
 			case 'e':
@@ -89,7 +86,7 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 		return () => {
 			window.removeEventListener('keydown', onKeyDown);
 		};
-	}, []);
+	}, [currentBoardId]);
 
 	return (
 		<DragDropContext onDragEnd={res => handleDragEnd(res)}>
