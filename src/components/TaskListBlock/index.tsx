@@ -61,7 +61,6 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 			const index = prev.findIndex(board => board.id === currentBoardId);
 			const boardCopy = arr[index];
 			arr.splice(index, 1, {
-				// title: currentBoard.title,
 				...boardCopy,
 				[title]: [
 					...boardCopy[title],
@@ -79,7 +78,6 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 	};
 
 	const onKeyDown = (e: KeyboardEvent) => {
-		console.log(e.key);
 		switch (e.key.toLowerCase()) {
 			case 'e':
 				addTask(TASKTAG.TODO);

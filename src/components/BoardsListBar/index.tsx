@@ -43,7 +43,6 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 	};
 
 	const onKeyDown = (e: KeyboardEvent) => {
-		console.log(e.key);
 		switch (e.key.toLowerCase()) {
 			case 'd':
 				handleAddButton();
