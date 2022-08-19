@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import React, { Dispatch, FC, SetStateAction, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { AddButton } from '..';
 import { TBoards, TASKTAG } from '../../constant';
@@ -41,6 +41,22 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 		}
 		board.id === currentBoardId && setcurrentBoardId(boards[0]?.id || 'null');
 	};
+
+	const onKeyDown = (e: KeyboardEvent) => {
+		console.log(e.key);
+		switch (e.key.toLowerCase()) {
+			case 'd':
+				handleAddButton();
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('keydown', onKeyDown);
+		return () => {
+			window.removeEventListener('keydown', onKeyDown);
+		};
+	}, []);
+
 	return (
 		<div className='boards-lists-bar'>
 			<h1 className='title'>react-kanban-board</h1>

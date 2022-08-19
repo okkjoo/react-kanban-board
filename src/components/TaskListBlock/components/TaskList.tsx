@@ -1,4 +1,4 @@
-import React, { FC, Dispatch } from 'react';
+import React, { FC, Dispatch, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { AddButton } from '../../';
 import { TBoards, TASKTAG } from '../../../constant';
@@ -10,40 +10,17 @@ interface TaskListProp {
 	boards: TBoards[];
 	setBoards: Dispatch<React.SetStateAction<TBoards[]>>;
 	currentBoardId: string;
+	addTask: (title: TASKTAG) => void;
 }
 const TaskList: FC<TaskListProp> = ({
 	title,
 	boards,
 	currentBoardId,
 	setBoards,
+	addTask,
 }) => {
 	const handleAddTaskBtn = () => {
-		const taskTitle = prompt('Enter your task title');
-		const content = prompt('Enter your task content');
-		if (!(taskTitle && content)) {
-			alert('The content cannot be empty');
-			return;
-		}
-		setBoards(prev => {
-			const arr = [...prev];
-			const index = prev.findIndex(board => board.id === currentBoardId);
-			const boardCopy = arr[index];
-			arr.splice(index, 1, {
-				// title: currentBoard.title,
-				...boardCopy,
-				[title]: [
-					...boardCopy[title],
-					{
-						title: taskTitle,
-						content: content,
-						id: nanoid(),
-						// id: tid,
-						// tag: title,
-					},
-				],
-			});
-			return arr;
-		});
+		addTask(title);
 	};
 
 	const handleDeleteTaskButton = (id: string) => {

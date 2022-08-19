@@ -1,9 +1,10 @@
-import React, { FC, Dispatch } from 'react';
+import React, { FC, Dispatch, useEffect } from 'react';
 import { TBoards, TASKTAG } from '../../constant';
 import TaskList from './components/TaskList';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import './TaskListBlock.scss';
+import { nanoid } from 'nanoid';
 
 interface TaskListBlockProps {
 	boards: TBoards[];
@@ -45,6 +46,53 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 			})
 		);
 	};
+
+	const addTask = (title: TASKTAG) => {
+		const taskTitle = prompt('Enter your task title');
+		const content = prompt('Enter your task content');
+
+		if (!(taskTitle && content)) {
+			alert('The content cannot be empty');
+			return;
+		}
+
+		setBoards(prev => {
+			const arr = [...prev];
+			const index = prev.findIndex(board => board.id === currentBoardId);
+			const boardCopy = arr[index];
+			arr.splice(index, 1, {
+				// title: currentBoard.title,
+				...boardCopy,
+				[title]: [
+					...boardCopy[title],
+					{
+						title: taskTitle,
+						content: content,
+						id: nanoid(),
+						// id: tid,
+						// tag: title,
+					},
+				],
+			});
+			return arr;
+		});
+	};
+
+	const onKeyDown = (e: KeyboardEvent) => {
+		console.log(e.key);
+		switch (e.key.toLowerCase()) {
+			case 'e':
+				addTask(TASKTAG.TODO);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('keydown', onKeyDown);
+		return () => {
+			window.removeEventListener('keydown', onKeyDown);
+		};
+	}, []);
+
 	return (
 		<DragDropContext onDragEnd={res => handleDragEnd(res)}>
 			<div className='task-list-container-block'>
@@ -53,18 +101,21 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 					boards={boards}
 					setBoards={setBoards}
 					currentBoardId={currentBoardId}
+					addTask={addTask}
 				/>
 				<TaskList
 					title={TASKTAG.ING}
 					boards={boards}
 					setBoards={setBoards}
 					currentBoardId={currentBoardId}
+					addTask={addTask}
 				/>
 				<TaskList
 					title={TASKTAG.ED}
 					boards={boards}
 					setBoards={setBoards}
 					currentBoardId={currentBoardId}
+					addTask={addTask}
 				/>
 			</div>
 		</DragDropContext>
