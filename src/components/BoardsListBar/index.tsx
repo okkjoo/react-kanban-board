@@ -58,7 +58,14 @@ const BoardsListBar: FC<BoardsListBarProps> = ({
 
 	return (
 		<div className='boards-lists-bar'>
-			<h1 className='title'>react-kanban-board</h1>
+			<h1
+				className='title'
+				onClick={() => {
+					window.open('https://github.com/okkjoo/react-kanban-board');
+				}}
+			>
+				react-kanban-board
+			</h1>
 			<div className='boards-lists'>
 				{boards?.map((board, idx) => (
 					<div className='board-container' key={board.title + idx}>
