@@ -1,10 +1,11 @@
 import React, { FC, Dispatch, useEffect } from 'react';
+import { nanoid } from 'nanoid';
 import { TBoards, TASKTAG } from '../../constant';
 import TaskList from './components/TaskList';
+import { cloneDeep } from '../../utils';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import './TaskListBlock.scss';
-import { nanoid } from 'nanoid';
 
 interface TaskListBlockProps {
 	boards: TBoards[];
@@ -18,8 +19,16 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 	currentBoardId,
 }) => {
 	const handleDragEnd = (res: DropResult) => {
-		if (!res.destination) return;
-		const { source, destination } = res;
+		const { destination, source, draggableId } = res;
+		if (!destination) return;
+
+		if (
+			destination.droppableId === source.droppableId &&
+			destination.index === source.index
+		) {
+			return;
+		}
+
 		const curBoard = boards.find(
 			board => board.id === currentBoardId
 		) as TBoards;
@@ -28,17 +37,17 @@ const TaskListBlock: FC<TaskListBlockProps> = ({
 		setBoards(preBoards =>
 			preBoards.map(board => {
 				if (board.id === currentBoardId) {
-					let boardCopy = { ...board };
+					let boardCopy = cloneDeep(board);
 					// removed from source
-					const taskListSource = board[source.droppableId as TASKTAG];
+					const taskListSource = boardCopy[source.droppableId as TASKTAG];
 					taskListSource.splice(source.index, 1);
-					boardCopy = { ...board, [source.droppableId]: taskListSource };
+					boardCopy = { ...boardCopy, [source.droppableId]: taskListSource };
 
 					// add to destination
-					const taskListDes = board[destination.droppableId as TASKTAG];
+					const taskListDes = boardCopy[destination.droppableId as TASKTAG];
 					taskListDes.splice(destination.index, 0, taskCopy);
 					boardCopy = {
-						...board,
+						...boardCopy,
 						[destination.droppableId as TASKTAG]: taskListDes,
 					};
 					return boardCopy;
