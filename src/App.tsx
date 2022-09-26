@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BoardsListBar, TaskListBlock, StartPage } from './components';
-import { TBoards, DATAKEY } from './constant';
+import { TBoards, DATAKEY, MODE } from './constant';
 
 import './App.css';
 
@@ -18,13 +18,19 @@ function App() {
 		initialCurBoardId || boards[0]?.id || 'null'
 	);
 
+	const [mode, setMode] = useState<MODE>(MODE.LIGHT);
+
+	const toggleModeClick = () => {
+		setMode(pre => (pre === MODE.LIGHT ? MODE.DARK : MODE.LIGHT));
+	};
+
 	useEffect(() => {
 		localStorage.setItem(DATAKEY, JSON.stringify(boards));
 		sessionStorage.setItem(DATAKEY, currentBoardId);
 	}, [boards, currentBoardId]);
 
 	return (
-		<div className='App'>
+		<div className='App' code-mode={mode}>
 			<BoardsListBar
 				boards={boards}
 				setBoards={setBoards}
@@ -38,6 +44,9 @@ function App() {
 					currentBoardId={currentBoardId}
 				/>
 			)) || <StartPage />}
+			<div className='toggle-btn' onClick={toggleModeClick}>
+				{mode === MODE.LIGHT ? '🌞' : '🌙'}
+			</div>
 		</div>
 	);
 }

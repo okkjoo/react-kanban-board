@@ -1,4 +1,24 @@
 .App {
 	display: grid;
 	grid-template-columns: minmax(300px, 20%) 1fr;
+	background-color: #fff;
+	transition: 0.8s;
+}
+.App .toggle-btn {
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.App[code-mode='dark'] {
+	filter: invert(1) hue-rotate(180deg);
+}
+
+.App[code-mode='dark'] .task-title::before {
+	filter: invert(1) hue-rotate(180deg);
+}
+.App[code-mode='dark'] .toggle-btn {
+	filter: invert(1) hue-rotate(180deg);
 }

@@ -3,6 +3,10 @@ export enum TASKTAG {
 	ING = 'ing',
 	ED = 'ed',
 }
+export enum MODE {
+	LIGHT = 'light',
+	DARK = 'dark',
+}
 
 export type task = {
 	title: string;
