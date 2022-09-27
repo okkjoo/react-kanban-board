@@ -5,6 +5,8 @@ A kanban App
 
 ![1660898131383](image/README/1660898131383.png)
 
+![1664246369077](image/README/1664246369077.png)
+
 ## Features
 
 - draggable
@@ -40,7 +42,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### TODO
 
-- [] Jitter problem when dragging
-- [] editable task
-- [] Some animation effects
-- [] Topic switching function
+- [ ] Jitter problem when dragging
+- [ ] editable task
+- [ ] Some animation effects
+- [x] Topic switching function
